@@ -1,0 +1,23 @@
+{
+  "name": "mongo_express",
+  "version": "1.0.0",
+  "description": "using mongo and express for school DB assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Israel025/mongo_express.git"
+  },
+  "author": "Israel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Israel025/mongo_express/issues"
+  },
+  "homepage": "https://github.com/Israel025/mongo_express#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.5.2"
+  }
+}
