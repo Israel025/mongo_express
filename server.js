@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use('/student', StudentRoute);
 
-// app.use('/teacher', TeacherRoute);
+app.use('/teacher', TeacherRoute);
 
 app.listen(port).on("listening", () => {
   console.log(`Server running on ${port}`);

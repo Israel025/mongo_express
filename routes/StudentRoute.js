@@ -38,7 +38,7 @@ router.get("", async function(req, res) {
     console.log(err);
     res.status(500).json({
       status: "error",
-      message: "An error occured while getting writer's",
+      message: "An error occured while getting students",
     });
   }
 });
@@ -71,5 +71,49 @@ router.delete('/:student_id', async function(req, res) {
   }
 });
 
+// Update and edit a student
+router.put('/:student_id', async function(req, res) {
+  try {
+    const updatedStudent = await StudentModel.findOneAndUpdate(
+      { student_id: req.params.student_id },
+      {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        gender: req.body.gender,
+        email: req.body.email,
+        class: req.body.class,
+        age: req.body.age,
+      },
+      { new: true }
+    );
+
+    // Check if student not found and updated
+    if (!updatedStudent) {
+      res.status(404).json({
+        status: 'error',
+        message: 'Sorry that Student record does not exist',
+      });
+    }
+
+    res.json({
+      status: 'success',
+      data: updatedStudent,
+    });
+  } catch (err) {
+    console.log(err);
+
+    res.status(500).json({
+      status: 'error',
+      message: 'Error occured while updating the student',
+    });
+  }
+});
+
+//edit a student
+// router.patch("/:student_id", async function(req, res){
+//   const editedStudent = await StudentModel.findOneAndUpdate(
+
+//   );
+// });
 
 module.exports = router;
